@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { FaCheckCircle, FaChevronDown } from "react-icons/fa";
 
 export default function Payment() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndex, setOpenIndex] = useState()
 
   const faqs = [
     { q: "What is AI content writing tool?", a: "It’s an AI-powered system that helps generate content instantly using advanced GPT models." },

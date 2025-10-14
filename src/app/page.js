@@ -3,6 +3,7 @@ import Hero from "./components/Hero";
 import Create from "./components/Create";
 import StepsCard from "./components/StepsCard";
 import Generate from "./components/Generate";
+import Payment from "./components/Payment";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <StepsCard></StepsCard>
         <Create></Create>
         <Generate></Generate>
+        <Payment></Payment>
     </>
   );
 }
