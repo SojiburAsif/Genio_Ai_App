@@ -2,32 +2,38 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { FaBars, FaTimes, FaChevronDown, FaUser } from "react-icons/fa";
-
-// If you use shadcn/ui in your project, replace these with actual imports
-// import { Button } from "@/components/ui/button";
-// import { Avatar } from "@/components/ui/avatar";
-// import ThemeToggle from "@/components/ThemeToggle";
-
-/**
- * Genio Header
- * - Responsive header for the Genio app (brand + nav + auth + theme toggle)
- * - TailwindCSS + optional shadcn components
- *
- * Usage: place <Header /> in your root layout (app/layout.tsx) inside the <body>
- */
+import { FaBars, FaTimes, FaChevronDown, FaSun, FaMoon } from "react-icons/fa";
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
+
+  const toggleTheme = () => {
+    document.documentElement.classList.toggle("dark");
+    setDarkMode(!darkMode);
+  };
 
   return (
-    <header className="w-full border-b bg-white/60 backdrop-blur-sm dark:bg-slate-900/60 dark:border-slate-800">
-      <div className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
+    <header
+      className={`
+        fixed top-4 left-1/2 z-50
+        -translate-x-1/2
+        w-[95%] md:w-[90%]
+        rounded-2xl border
+        bg-white/60 backdrop-blur-xl
+        dark:bg-slate-900/70 dark:border-slate-800
+        shadow-lg transition-all duration-300
+      `}
+    >
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          {/* Left: Logo */}
+          {/* Left: Logo + Nav */}
           <div className="flex items-center gap-4">
-            <Link href="/" className="flex items-center gap-3 text-slate-900 dark:text-white">
-              {/* Simple SVG mark */}
+            <Link
+              href="/"
+              className="flex items-center gap-3 text-slate-900 dark:text-white"
+            >
+              {/* Logo */}
               <svg
                 width="36"
                 height="36"
@@ -58,7 +64,7 @@ export default function Header() {
               <span className="font-semibold text-lg">Genio</span>
             </Link>
 
-            {/* Primary nav - hidden on mobile */}
+            {/* Desktop Nav */}
             <nav className="hidden md:flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300">
               <Link
                 href="/"
@@ -78,26 +84,28 @@ export default function Header() {
               >
                 Pricing
               </Link>
-              <div className="relative group">
-                <button className="px-3 py-2 rounded-md inline-flex items-center gap-2 hover:bg-slate-100 dark:hover:bg-slate-800">
+
+              {/* Dropdown */}
+              <div className="dropdown dropdown-hover">
+                <label
+                  tabIndex={0}
+                  className="flex items-center gap-2 px-3 py-2 rounded-md cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800"
+                >
                   DAO <FaChevronDown size={14} />
-                </button>
-                {/* dropdown */}
-                <div className="absolute left-0 mt-2 hidden min-w-[180px] rounded-md border bg-white p-2 shadow-lg group-hover:block dark:bg-slate-800">
-                  <Link
-                    href="/dao/create"
-                    className="block px-3 py-2 rounded hover:bg-slate-50 dark:hover:bg-slate-700"
-                  >
-                    Create DAO
-                  </Link>
-                  <Link
-                    href="/dao/explore"
-                    className="block px-3 py-2 rounded hover:bg-slate-50 dark:hover:bg-slate-700"
-                  >
-                    Explore DAOs
-                  </Link>
-                </div>
+                </label>
+                <ul
+                  tabIndex={0}
+                  className="dropdown-content menu bg-white dark:bg-slate-800 rounded-md z-[1] w-48 p-2 shadow border dark:border-slate-700"
+                >
+                  <li>
+                    <Link href="/dao/create">Create DAO</Link>
+                  </li>
+                  <li>
+                    <Link href="/dao/explore">Explore DAOs</Link>
+                  </li>
+                </ul>
               </div>
+
               <Link
                 href="/docs"
                 className="px-3 py-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800"
@@ -107,20 +115,22 @@ export default function Header() {
             </nav>
           </div>
 
-          {/* Right: actions */}
+          {/* Right: Actions */}
           <div className="flex items-center gap-3">
-            {/* ThemeToggle placeholder - replace with your component */}
-            <div className="hidden sm:block">
-              {/* If you have ThemeToggle component, replace below */}
-              <button
-                aria-label="Toggle theme"
-                className="rounded-md px-2 py-2 hover:bg-slate-100 dark:hover:bg-slate-800"
-              >
-                🌙
-              </button>
-            </div>
+            {/* Theme Toggle */}
+            <button
+              onClick={toggleTheme}
+              className="hidden sm:flex items-center justify-center rounded-md p-2 hover:bg-slate-100 dark:hover:bg-slate-800 transition"
+              aria-label="Toggle theme"
+            >
+              {darkMode ? (
+                <FaSun className="text-yellow-400" size={18} />
+              ) : (
+                <FaMoon className="text-slate-600" size={18} />
+              )}
+            </button>
 
-            {/* Auth area */}
+            {/* Auth Links */}
             <div className="hidden md:flex items-center gap-3">
               <Link
                 href="/login"
@@ -136,7 +146,7 @@ export default function Header() {
               </Link>
             </div>
 
-            {/* Mobile menu button */}
+            {/* Mobile Menu Button */}
             <button
               className="md:hidden inline-flex items-center justify-center rounded-md p-2 hover:bg-slate-100 dark:hover:bg-slate-800"
               aria-label="Toggle menu"
@@ -148,10 +158,10 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile nav */}
+      {/* Mobile Nav */}
       {mobileOpen && (
-        <div className="md:hidden border-t bg-white/80 py-4 dark:bg-slate-900/80">
-          <div className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
+        <div className="md:hidden border-t bg-white/90 py-4 dark:bg-slate-900/90 rounded-b-2xl">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <nav className="flex flex-col gap-2 text-sm text-slate-700 dark:text-slate-300">
               <Link href="/" className="block px-3 py-2 rounded-md">
                 Home
@@ -164,6 +174,9 @@ export default function Header() {
               </Link>
               <Link href="/dao/create" className="block px-3 py-2 rounded-md">
                 Create DAO
+              </Link>
+              <Link href="/dao/explore" className="block px-3 py-2 rounded-md">
+                Explore DAOs
               </Link>
               <Link href="/docs" className="block px-3 py-2 rounded-md">
                 Docs
