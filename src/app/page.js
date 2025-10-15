@@ -5,13 +5,15 @@ import StepsCard from "./components/StepsCard";
 import Generate from "./components/Generate";
 import Payment from "./components/Payment";
 import QuestionsSection from "./QuestionsSection";
+import Header from "./components/Header";
 
 export default function Home() {
   return (
     <>
+      <Header />
       <Hero></Hero>
       <div className="bg-gradient-to-b from-[#071025] via-[#061224] to-[#050615] ">
-        <Create></Create>
+        {/* <Create></Create> */}
         <StepsCard></StepsCard>
         <Payment></Payment>
         <Generate></Generate>
