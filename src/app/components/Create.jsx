@@ -11,7 +11,7 @@ import {
 } from "react-icons/fa";
 
 export default function Create() {
-  // motion variants
+
   const stepItem = {
     hidden: { opacity: 0, y: 8 },
     show: { opacity: 1, y: 0, transition: { duration: 0.45 } },

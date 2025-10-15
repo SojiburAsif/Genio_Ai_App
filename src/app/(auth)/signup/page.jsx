@@ -142,14 +142,13 @@ export default function SignupPage() {
           </motion.button>
         </form>
 
-        {/* Divider */}
         <div className="my-5 flex items-center gap-3">
           <div className="flex-1 h-[1px] bg-white/10" />
           <div className="text-xs text-slate-400">or continue with</div>
           <div className="flex-1 h-[1px] bg-white/10" />
         </div>
 
-        {/* Google Signup */}
+      
         <button
           type="button"
           onClick={() => alert("Google Sign-up coming soon!")}
