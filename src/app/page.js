@@ -4,6 +4,7 @@ import Create from "./components/Create";
 import StepsCard from "./components/StepsCard";
 import Generate from "./components/Generate";
 import Payment from "./components/Payment";
+import QuestionsSection from "./QuestionsSection";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
         <Create></Create>
         <Generate></Generate>
         <Payment></Payment>
+         <QuestionsSection></QuestionsSection>
     </>
   );
 }
