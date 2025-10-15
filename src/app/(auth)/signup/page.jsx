@@ -3,7 +3,8 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
-import { FaUser, FaEnvelope, FaLock, FaGoogle } from "react-icons/fa";
+import { FaUser, FaEnvelope, FaLock, FaGoogle, FaHome } from "react-icons/fa";
+import Link from "next/link";
 
 export default function SignupPage() {
   const { register, handleSubmit, formState } = useForm({
@@ -21,7 +22,16 @@ export default function SignupPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-[#071025] via-[#061224] to-[#050615] p-6">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-[#071025] via-[#061224] to-[#050615] p-6">
+      {/* Back to Home */}
+      <Link
+        href="/"
+        className="flex items-center gap-2 mb-6 text-slate-400 hover:text-cyan-400 transition"
+      >
+        <FaHome className="text-cyan-400" />
+        <span>Back to Home</span>
+      </Link>
+
       <motion.div
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
@@ -30,12 +40,11 @@ export default function SignupPage() {
       >
         {/* Header */}
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-white tracking-wide">
-            Create Account ✨
+          <h1 className="text-2xl text-white tracking-wide">
+            Create your account
           </h1>
           <p className="text-sm text-slate-400 mt-2">
-            Join <span className="text-cyan-400 font-medium">QumAI</span> and
-            start creating smarter content.
+            Join <span className="text-cyan-400">Genio</span> and start creating smarter content.
           </p>
         </div>
 
@@ -53,9 +62,7 @@ export default function SignupPage() {
               className="w-full px-4 py-2 rounded-lg bg-[#0a1327]/60 border border-white/10 text-white placeholder:text-slate-400 focus:ring-2 focus:ring-cyan-400 focus:outline-none"
             />
             {errors.name && (
-              <p className="text-xs text-rose-300 mt-1">
-                {errors.name.message}
-              </p>
+              <p className="text-xs text-rose-300 mt-1">{errors.name.message}</p>
             )}
           </div>
 
@@ -77,9 +84,7 @@ export default function SignupPage() {
               className="w-full px-4 py-2 rounded-lg bg-[#0a1327]/60 border border-white/10 text-white placeholder:text-slate-400 focus:ring-2 focus:ring-cyan-400 focus:outline-none"
             />
             {errors.email && (
-              <p className="text-xs text-rose-300 mt-1">
-                {errors.email.message}
-              </p>
+              <p className="text-xs text-rose-300 mt-1">{errors.email.message}</p>
             )}
           </div>
 
@@ -91,10 +96,7 @@ export default function SignupPage() {
             <input
               {...register("password", {
                 required: "Password is required",
-                minLength: {
-                  value: 6,
-                  message: "At least 6 characters",
-                },
+                minLength: { value: 6, message: "At least 6 characters" },
               })}
               type="password"
               placeholder="••••••••"
@@ -134,9 +136,9 @@ export default function SignupPage() {
             whileTap={{ scale: 0.97 }}
             type="submit"
             disabled={loading}
-            className="w-full py-2 rounded-xl bg-gradient-to-r from-cyan-400 to-blue-500 text-black font-semibold hover:opacity-90 transition"
+            className="w-full py-2 rounded-xl bg-gradient-to-r from-cyan-400 to-blue-500 text-black font-medium hover:opacity-90 transition"
           >
-            {loading ? "Creating Account..." : "Sign Up"}
+            {loading ? "Creating account..." : "Sign up"}
           </motion.button>
         </form>
 
