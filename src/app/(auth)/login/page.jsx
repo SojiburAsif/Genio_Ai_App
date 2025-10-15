@@ -16,7 +16,7 @@ export default function LoginPage() {
   const onSubmit = async (values) => {
     setLoading(true);
     setTimeout(() => {
-      alert(`Logged in with ${usePhone ? "phone" : "email"} ✅`);
+      alert(`✅ Logged in with ${usePhone ? "phone" : "email"}`);
       setLoading(false);
     }, 1000);
   };
@@ -35,7 +35,7 @@ export default function LoginPage() {
             Welcome Back 👋
           </h1>
           <p className="text-sm text-slate-400 mt-2">
-            Sign in to continue to <span className="text-cyan-400">QumAI</span>
+            Sign in to continue to <span className="text-cyan-400">Genio</span>
           </p>
         </div>
 
@@ -143,7 +143,7 @@ export default function LoginPage() {
             </>
           )}
 
-          {/* Login button */}
+          {/* Login Button */}
           <motion.button
             whileTap={{ scale: 0.97 }}
             type="submit"
@@ -164,7 +164,7 @@ export default function LoginPage() {
         {/* Google Login */}
         <button
           type="button"
-          onClick={() => alert("Google Sign-in coming soon!")}
+          onClick={() => alert("🔐 Google Sign-in coming soon!")}
           className="w-full flex items-center justify-center gap-3 py-2 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition text-slate-200"
         >
           <FaGoogle className="text-cyan-400" /> Continue with Google
@@ -173,7 +173,7 @@ export default function LoginPage() {
         {/* Footer */}
         <p className="text-sm text-center text-slate-400 mt-6">
           Don’t have an account?{" "}
-          <a href="/register" className="text-cyan-400 hover:underline">
+          <a href="/signup" className="text-cyan-400 hover:underline">
             Create one
           </a>
         </p>
