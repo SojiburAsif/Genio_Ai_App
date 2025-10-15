@@ -10,9 +10,9 @@ const roboto = Roboto({
 });
 
 export const metadata = {
-  title: "QumAI — AI Content Generator",
+  title: "Genio",
   description: "Generate blogs, posts, and captions with AI in seconds.",
-  
+
 };
 
 export default function RootLayout({ children }) {
