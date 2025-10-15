@@ -27,7 +27,7 @@ export default function PaymentSection() {
   ];
 
   return (
-    <section className="bg-[#070C1A] text-white py-24 px-6">
+    <section className=" text-white py-24 px-6">
       <div className="max-w-6xl mx-auto text-center">
         <h2 className="text-4xl font-bold">
           The Right Plan for <br />

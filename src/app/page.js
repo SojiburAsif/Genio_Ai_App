@@ -10,12 +10,19 @@ export default function Home() {
   return (
     <>
       <Hero></Hero>
-      {/* <div className="bg-gradient-to-b from-[#071025] via-[#061224] to-[#050615] ">  </div> */}
-      <StepsCard></StepsCard>
+      <div className="bg-gradient-to-b from-[#071025] via-[#061224] to-[#050615] ">
         <Create></Create>
-        <Generate></Generate>
+        <StepsCard></StepsCard>
         <Payment></Payment>
-         <QuestionsSection></QuestionsSection>
+        <Generate></Generate>
+        <QuestionsSection></QuestionsSection>
+
+
+
+
+
+      </div>
+
     </>
   );
 }

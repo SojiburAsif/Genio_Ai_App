@@ -31,7 +31,7 @@ export default function QuestionsSection() {
   ];
 
   return (
-    <section className="bg-[#050615] text-white py-28 px-6 overflow-hidden">
+    <section className=" text-white py-28 px-6 overflow-hidden">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-start">
         {/* LEFT SIDE — Text + Button */}
         <motion.div

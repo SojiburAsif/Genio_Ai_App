@@ -56,7 +56,6 @@ const features = [
   },
 ];
 
-// extra features for modal
 const extraFeatures = [
   {
     id: 7,
@@ -88,12 +87,12 @@ export default function Generate() {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <section className="bg-gradient-to-b from-[#071025] via-[#061224] to-[#050615] text-white py-14">
+    <section className="text-white py-16"> {/* ❌ কোনো bg নেই */}
       <div className="mx-auto max-w-7xl px-6">
         {/* Heading */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-extrabold">
-            AI Generate content in seconds
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+            AI Generate Content in Seconds
           </h2>
           <p className="mt-3 text-sm md:text-base text-slate-300 max-w-2xl mx-auto">
             QumAI offers powerful AI tools to create, optimize, and inspire — all in one place.
@@ -110,22 +109,26 @@ export default function Generate() {
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 whileHover={{
-                  translateY: -8,
-                  boxShadow: "0 20px 45px rgba(2,6,23,0.7)",
+                  translateY: -10,
+                  boxShadow: "0 20px 40px rgba(0,0,0,0.3)",
                 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.35 }}
-                className="relative rounded-2xl p-[2px] h-[260px]"
+                className="relative rounded-2xl p-[2px] h-[250px] group"
               >
-                {/* Gradient border only */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-teal-300 via-yellow-300 to-purple-400 opacity-70"></div>
+                {/* Border Glow */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-cyan-400 via-pink-400 to-yellow-300 opacity-50 blur-[2px] group-hover:opacity-70 transition duration-300"></div>
 
                 {/* Card content */}
-                <div className="relative h-full rounded-2xl bg-gradient-to-b from-[#071025] via-[#061224] to-[#050615] p-8 flex flex-col justify-between border border-transparent">
+                <div className="relative h-full rounded-2xl bg-gradient-to-b from-[#071025] via-[#061224] to-[#050615] p-8 flex flex-col justify-between border border-white/10">
                   <div className="flex items-start gap-4">
-                    <Icon className="w-8 h-8 text-purple-300" />
+                    <div className="p-3 rounded-xl bg-white/10 border border-white/10">
+                      <Icon className="w-6 h-6 text-cyan-300" />
+                    </div>
                     <div>
-                      <h3 className="text-lg font-semibold">{f.title}</h3>
+                      <h3 className="text-lg font-semibold group-hover:text-white transition">
+                        {f.title}
+                      </h3>
                       <p className="mt-2 text-sm text-slate-300 leading-relaxed">
                         {f.desc}
                       </p>
@@ -133,11 +136,9 @@ export default function Generate() {
                   </div>
 
                   <div className="mt-6 flex items-center justify-end">
-                    <div className="flex items-center gap-3 text-white/80">
-                      <span className="text-sm">Learn</span>
-                      <div className="w-8 h-8 rounded-full flex items-center justify-center border border-white/10 bg-[rgba(255,255,255,0.03)]">
-                        <FaArrowRight className="text-white/80" />
-                      </div>
+                    <div className="flex items-center gap-2 text-white/80 group-hover:text-cyan-300 transition">
+                      <span className="text-sm font-medium">Learn More</span>
+                      <FaArrowRight className="w-4 h-4" />
                     </div>
                   </div>
                 </div>
@@ -150,7 +151,7 @@ export default function Generate() {
         <div className="mt-14 flex justify-center">
           <button
             onClick={() => setShowModal(true)}
-            className="rounded-full bg-white/5 px-6 py-2 text-sm font-medium border border-white/10 hover:scale-[1.03] transition"
+            className="rounded-full bg-white/5 px-6 py-2 text-sm font-medium border border-white/10 hover:bg-white/10 transition"
           >
             See More
           </button>
@@ -186,7 +187,7 @@ export default function Generate() {
                   return (
                     <div
                       key={f.id}
-                      className="flex items-start gap-4 p-4 rounded-xl bg-gradient-to-b from-[#0C1428]/60 to-[#080C1B]/60 border border-white/10"
+                      className="flex items-start gap-4 p-4 rounded-xl bg-gradient-to-b from-[#0C1428]/60 to-[#080C1B]/60 border border-white/10 hover:bg-white/[0.08] transition"
                     >
                       <Icon className="w-7 h-7 text-yellow-300" />
                       <div>
