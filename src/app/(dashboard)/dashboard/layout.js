@@ -5,7 +5,6 @@ export const metadata = {
   description: "Manage your AI content and settings from your dashboard",
 };
 
-// 🚨 এখানে <html> বা <body> দিও না! Next.js 15 এটাকে nested layout ধরে।
 export default function DashboardLayout({ children }) {
   return (
     <div className="flex min-h-screen bg-[#050615] text-white">

@@ -12,6 +12,7 @@ const roboto = Roboto({
 export const metadata = {
   title: "QumAI — AI Content Generator",
   description: "Generate blogs, posts, and captions with AI in seconds.",
+  
 };
 
 export default function RootLayout({ children }) {
@@ -20,7 +21,7 @@ export default function RootLayout({ children }) {
       <body className={`${roboto.variable} antialiased`}>
      
         {children}
-        <Footer />
+  
       </body>
     </html>
   );

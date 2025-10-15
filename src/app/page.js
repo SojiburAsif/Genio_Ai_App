@@ -4,8 +4,9 @@ import Create from "./components/Create";
 import StepsCard from "./components/StepsCard";
 import Generate from "./components/Generate";
 import Payment from "./components/Payment";
-import QuestionsSection from "./QuestionsSection";
+import QuestionsSection from "./components/QuestionsSection";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (
@@ -19,7 +20,7 @@ export default function Home() {
         <Generate></Generate>
         <QuestionsSection></QuestionsSection>
 
-
+        <Footer />
 
 
 
