@@ -132,15 +132,10 @@ export default function Header() {
 
             {/* Auth Links */}
             <div className="hidden md:flex items-center gap-3">
-              <Link
-                href="/login"
-                className="rounded-md px-3 py-2 text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800"
-              >
-                Login
-              </Link>
+            
               <Link
                 href="/signup"
-                className="rounded-md border px-3 py-1.5 text-sm font-medium hover:bg-slate-50 dark:border-slate-700"
+                className="rounded-md border px-3 py-1.5 text-sm font-medium hover:bg-slate-700 dark:border-slate-700"
               >
                 Get Started
               </Link>
